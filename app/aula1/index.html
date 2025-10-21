@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>executando electron</title>
+    <!-- <link rel="stylesheet" href=""> -->
+    <style>
+        body{
+            background-color: aqua;
+           font-family: Arial, Helvetica, sans-serif;
+        }
+        label{
+            font-size: 16px;
+                font-style: italic       
+        }
+        button{
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HELLO WORD!</h1>
+
+    <label for="Nome">Nome</label>
+    <input type="text" id="Nome" placeholder="adicione seu Nome" />
+    <button id="botao" onclick="pegarnome()"> Enviar</button>
+    <br><br> 
+
+    <label for="Numero">numero</label>
+    <input type="text" id="Numero" placeholder="insira o Numero">
+    <button id="botao" onclick= "pegarnumero()"> Enviar</button>
+
+
+
+
+<p id="texto2"></p>
+    <!-- <script src="funcao.js"> -->
+<script>
+
+    function pegarnome(){
+        let conteudo = document.getElementById('Nome').value
+        alert(`ola ${conteudo}`)
+        document.getElementById('Nome').value = ""
+        document.getElementById('texto').innerHTML = `ola, ${conteudo}!!!`
+
+    }
+
+    function pegarnumero(){
+    let numero = document.getElementById('Numero').value
+
+if (numero > 0 ){
+document.getElementById('texto2').innerHTML = 'positivo'
+}else{
+document.getElementById('texto2').innerHTML = 'negativo'
+ 
+}
+
+
+
+    }
+</script>
+
+
+
+</body>
+</html>
