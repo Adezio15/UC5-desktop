@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<h1>CALCULADORA PARA NOTAS</h1>
+
+<div>
+        <label for="numero">Nota 1 atividade:</label>
+        <input type="text" id="nota1" placeholder="Insira a nota da atividade">
+        <br>
+         <label for="numero">Nota 2 prova:</label>
+        <input type="text" id="nota2" placeholder="Insira a nota da prova"><br>
+        <button onclick="pegarnota()">Calcular media</button>
+
+</div>
+    <p id="resultado"></p>
+
+    <script>
+        let nota1
+        let nota2
+function pegarnota() {
+
+nota1 = parseFloat(document.getElementById('nota1').value) *0.40
+nota2 = parseFloat(document.getElementById('nota2').value) *0.60
+if(isNaN(nota1) || isNaN(nota2)){
+    document.getElementById('resultado').innerHTML = 'digite apenas numeros'
+}else{
+
+    document.getElementById('resultado').innerHTML = `SUA MEDIA É: ${(nota1+nota2).toFixed(2)}`
+}
+
+}
+
+    </script>
+</html>

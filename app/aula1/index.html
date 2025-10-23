@@ -3,66 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>executando electron</title>
-    <!-- <link rel="stylesheet" href=""> -->
+    <title>Verificação de Números</title>
     <style>
-        body{
-            background-color: aqua;
-           font-family: Arial, Helvetica, sans-serif;
+        /* ===== ESTILO GERAL ===== */
+        body {
+            background: linear-gradient(100deg, #00e1ff, #00b3b3);
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
         }
-        label{
+
+        h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        /* ===== FORMULÁRIO ===== */
+        label {
+            font-size: 20px;
+            font-style: italic;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 8px 12px;
             font-size: 16px;
-                font-style: italic       
+            border: none;
+            border-radius: 6px;
+            outline: none;
+            transition: 0.2s;
         }
-        button{
-            border-radius: 50px;
+
+        input:focus {
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
         }
+
+        /* ===== BOTÕES ===== */
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background-color: #fff;
+            color: #007777;
+            cursor: pointer;
+            transition: 0.3s;
+             
+        }
+
+        button:hover {
+            background-color: #007777;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* ===== TEXTO DE RESULTADO ===== */
+        #texto1 {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        
+            #atividade2{
+            position: static;
+            width: 600px;
+            left: 1000px;   
+            top: 1000px; 
+            
+              
+            }
+
+
+
+
     </style>
 </head>
-
 <body>
-    <h1>HELLO WORD!</h1>
 
-    <label for="Nome">Nome</label>
-    <input type="text" id="Nome" placeholder="adicione seu Nome" />
-    <button id="botao" onclick="pegarnome()"> Enviar</button>
-    <br><br> 
+    <h1>Verificação de Números</h1>
 
-    <label for="Numero">numero</label>
-    <input type="text" id="Numero" placeholder="insira o Numero">
-    <button id="botao" onclick= "pegarnumero()"> Enviar</button>
+    <div>
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" placeholder="Insira o número">
+        <button onclick="pegarnumero()">Enviar</button>
+        <button onclick="limparnumero()">Limpar</button>
+    </div>
 
-
-
-
-<p id="texto2"></p>
-    <!-- <script src="funcao.js"> -->
-<script>
-
-    function pegarnome(){
-        let conteudo = document.getElementById('Nome').value
-        alert(`ola ${conteudo}`)
-        document.getElementById('Nome').value = ""
-        document.getElementById('texto').innerHTML = `ola, ${conteudo}!!!`
-
-    }
-
-    function pegarnumero(){
-    let numero = document.getElementById('Numero').value
-
-if (numero > 0 ){
-document.getElementById('texto2').innerHTML = 'positivo'
-}else{
-document.getElementById('texto2').innerHTML = 'negativo'
- 
-}
+    <p id="texto1"></p>
 
 
+    <a href="atividade2.html"> <button id="atividade2">atividade2</button></a>
 
-    }
-</script>
+    <script>
+        function limparnumero() {
+            document.getElementById('numero').value = "";
+            document.getElementById('texto1').innerHTML = '';
+        }
 
+        function pegarnumero() {
+            const numero = document.getElementById('numero').value;
 
+            if (numero === '') { 
+                alert('Por favor, digite um valor.');
+                return;
+            }
+
+            const n = Number(numero);
+
+            if (isNaN(n)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            let resultado = '';
+
+            if (n >= 0) {
+                resultado = n % 2 === 0 ? 'POSITIVO E PAR' : 'POSITIVO E ÍMPAR';
+            } else {
+                resultado = n % 2 === 0 ? 'NEGATIVO E PAR' : 'NEGATIVO E ÍMPAR';
+            }
+
+            document.getElementById('texto1').innerHTML = resultado;
+        }
+    </script>
 
 </body>
 </html>
