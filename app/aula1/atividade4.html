@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERSOR DE MOEDAS</title>
+</head>
+<body>
+        <h1>CONVERSOR DE MOEDAS</h1>
+    <label for="numero">R$:</label>
+    <input type="number" id="valor" placeholder="Digte o valor em real"/><br><br>
+    <button id="botao1" onclick="dolar()">dolar</button>
+    <button id="botao2" onclick="euro()">euro</button>
+    <button id="botao3" onclick="peso()">peso</button>
+    <button id="botao4" onclick="libra()">libra</button>
+    <button id="botao5" onclick="franco()">franco</button>
+    <button id="botao5" onclick="limpar()">limpar</button>
+
+
+
+<p id="conversor"></p>
+
+    <script>
+        function dolar(){
+            let valor =  Number(document.getElementById('valor').value)
+            let result = (valor * 5.424)
+            document.getElementById('conversor').innerHTML = `dolar: ${result}`
+        }
+        function euro(){
+            let valor =  Number(document.getElementById('valor').value)
+            let result = (valor * 6.353)
+            document.getElementById('conversor').innerHTML = `euro: ${result}`
+        }
+        function peso(){
+            let valor =  Number(document.getElementById('valor').value)
+            let result = (valor * 0.0042)
+            document.getElementById('conversor').innerHTML = `peso: ${result}`
+        }
+        function libra(){
+            let valor =  Number(document.getElementById('valor').value)
+            let result = (valor * 7.326)
+            document.getElementById('conversor').innerHTML = `libra: ${result}`
+        }
+        function franco(){
+            let valor =  Number(document.getElementById('valor').value)
+            let result = (valor * 6.753)
+            document.getElementById('conversor').innerHTML = `franco: ${result}`
+        }
+        function Limpar(){
+            document.getElementById('valor').value = ''
+            document.getElementById('conversor').innerHTML = ''
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+</SCRipt>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
