@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULAR MEDIA</title>
+</head>
+<body>
+       <h1>CONVERSOR DE MOEDAS</h1>
+    <label for="nota1">1º BIMESTRE:</label>
+    <input type="number" id="nota1" placeholder="Digte a nota do bimestre"/>
+    <br>
+    <label for="nota2">2º BIMESTRE:</label>
+    <input type="number" id="nota2" placeholder="Digte a nota do bimestre"/>
+    <br>
+    <label for="nota3">3º BIMESTRE:</label>
+    <input type="number" id="nota3" placeholder="Digte a nota do bimestre"/>
+    <br>
+    <label for="nota4">4º BIMESTRE:</label>
+    <input type="number" id="nota4" placeholder="Digte a nota do bimestre"/>
+    <br>
+    <button id="calcular media" onclick="calcularmedia()">Calcular Media</button>
+    
+    <button id="limpar" onclick="limpar()">limpar</button>
+
+<p id="resultado"></p>
+
+    <script>
+
+ function calcularmedia(){
+            let nota1 =  Number(document.getElementById('nota1').value)
+            let nota2 =  Number(document.getElementById('nota2').value)
+            let nota3 =  Number(document.getElementById('nota3').value)
+            let nota4 =  Number(document.getElementById('nota4').value)
+let result = (nota1+nota2+nota3+nota4)/4
+if (result>=7){
+alert('aprovado')
+document.getElementById(`resultado`).innerHTML= `parabens voce foi aprovado: ${result.toFixed(2)}`
+
+}if(result >=4 && result<7){
+    alert('recuperação')
+document.getElementById(`resultado`).innerHTML= `voce esta em recuperação: ${result.toFixed(2)}`
+
+}else if(result<4){
+    alert('reprovado')
+document.getElementById(`resultado`).innerHTML= `voce esta reprovado: ${result.toFixed(2)}`
+
+
+}
+ }
+
+    </script>
+</body>
+</html>

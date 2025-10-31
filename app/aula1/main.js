@@ -5,7 +5,7 @@ const criarJanela = () =>{
     width:  800, 
     height:  800
     })
-janela.loadFile('index.html')
+janela.loadFile('calculadora.html')
 
 }
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+
+    <input type="text" id="visor" readonly><br><br>
+
+        <button id="limpar">Limpar</button>
+        <button id="l1">←</button>
+        <button class="op">%</button>
+        <div>
+
+
+        <button class="op">÷</button>
+        <button class="num">7</button>
+        <button class="num">8</button>
+        <button class="num">9</button>
+    </div>
+
+    <div>
+        <button class="op">*</button>
+        <button class="num">4</button>
+        <button class="num">5</button>
+        <button class="num">6</button>
+    </div>
+
+    <div>
+        <button class="op">-</button>
+        <button class="num">1</button>
+        <button class="num">2</button>
+        <button class="num">3</button>
+    </div>
+
+    <div>
+        <button class="op">+</button>
+        <button class="num">0</button>
+        <button id="igual">=</button>
+    </div>
+
+    <script>
+        const visor = document.getElementById('visor');
+
+        const limpar = document.getElementById('limpar')
+        let op
+
+        limpar.addEventListener('click', () => {
+            visor.value = ""
+        })
+        let botoes = document.querySelectorAll('button')
+        botoes.forEach((botao) => {
+            botao.addEventListener('click', () => {
+                if (botao.className === 'num') {
+                    visor.value += botao.textContent.trim()
+                } else if (botao.id === 'l1') {
+                    visor.value = visor.value.slice(0, -1)
+                } if (botao.className === 'op') {
+                    visor.value += botao.textContent.trim()
+                    op = botao.textContent.trim()
+                } else if (botao.id === 'igual') {
+                    let conteudo = visor.value.split(op)
+                    switch (op) {
+                        case '+':
+                            visor.value = Number(conteudo[0]) + Number(conteudo[1])
+                            break
+                        case '-':
+                            visor.value = Number(conteudo[0]) - Number(conteudo[1])
+                            break
+                    }
+                }
+        })
+        }
+        )
+
+
+    </script>
+
+</body>
+
+</html>
