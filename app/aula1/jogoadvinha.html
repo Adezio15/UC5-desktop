@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jogo de Adivinhação</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        body.escuro {
+            background-color: #121212;
+            color: white;
+        }
+
+        h1 {
+            color: #0077cc;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 8px;
+            text-align: center;
+            width: 80px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #mensagem {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        #dica {
+            color: darkred;
+            font-weight: bold;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .controles {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Jogo de Adivinhação de Números</h1>
+    <p>Tente adivinhar o número secreto entre <strong>1 e 50</strong>!</p>
+
+    <input type="number" id="palpite" placeholder="Seu palpite">
+    <br><br>
+
+    <button id="verificar">Verificar</button>
+    <button id="limpar">Limpar</button>
+    <button id="dicaBtn" style="display:none;">Dica</button>
+
+    <div id="mensagem"></div>
+    <div id="dica"></div>
+
+    <div class="controles">
+        <h3> Controle da Janela</h3>
+        <button id="mudartema">Mudar Tema</button>
+        <button id="zoomMais">Zoom +</button>
+        <button id="zoomMenos">Zoom -</button>
+    </div>
+
+    <footer>
+
+    <script>
+        // Número aleatório
+        let numeroSecreto = Math.floor(Math.random() * 50) + 1;
+        let tentativas = 0;
+        let zoomNivel = 1;
+
+        const palpite = document.getElementById('palpite');
+        const mensagem = document.getElementById('mensagem');
+        const dica = document.getElementById('dica');
+        const dicaBtn = document.getElementById('dicaBtn');
+
+        // Função verificar
+        document.getElementById('verificar').addEventListener('click', function () {
+            let valor = Number(palpite.value);
+            tentativas++;
+
+            if (valor === numeroSecreto) {
+                mensagem.innerHTML = ` Parabéns! Você acertou o número <strong>${numeroSecreto}</strong> em <strong>${tentativas}</strong> tentativas!`;
+                dica.style.display = "none";
+                dicaBtn.style.display = "none";
+            } else {
+                mensagem.innerHTML = " Errou! Tente novamente.";
+                dicaBtn.style.display = "inline-block";
+            }
+        });
+
+        // Função limpar
+        document.getElementById('limpar').addEventListener('click', function () {
+            palpite.value = "";
+            mensagem.innerHTML = "";
+            dica.innerHTML = "";
+            dica.style.display = "none";
+        });
+
+        // Botão Dica
+        dicaBtn.addEventListener('click', function () {
+            let valor = Number(palpite.value);
+            dica.style.display = "block";
+            if (valor < numeroSecreto) {
+                dica.innerHTML = " Dica: O número secreto é <strong>MAIOR</strong>!";
+            } else {
+                dica.innerHTML = " Dica: O número secreto é <strong>MENOR</strong>!";
+            }
+        });
+
+        // Alternar tema
+      
+        document.getElementById('mudartema').addEventListener('click', function () {
+         window.api.tema()
+      })
+    
+        // Controle de Zoom
+        document.getElementById('zoomMais').addEventListener('click', function () {
+            window.api.zoommais()
+        });
+
+        document.getElementById('zoomMenos').addEventListener('click', function () {
+            window.api.zoomenos()
+        }
+    )
+    </script>
+</body>
+
+</html>
