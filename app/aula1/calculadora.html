@@ -6,31 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: black;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.escuro {
-            background-color: #121212;
-            color: white;
-        }
-
-        button {
-            margin: 5px;
-            padding: 10px 15px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        input {
-            font-size: 20px;
-            width: 200px;
-            text-align: right;
-        }
+      
     </style>
 </head>
 
@@ -85,24 +61,26 @@
         });
 
         // Alternar tema
-        botaoTema.addEventListener('click', () => {
-            document.body.classList.toggle('escuro'); //adicionar ou remover uma classe
+         document.getElementById('mudartema').addEventListener('click', function () {
+         window.api.tema()
         });
 
         // Mostrar histórico em nova janela
-        botaoHistorico.addEventListener('click', () => {
-            let novaJanela = window.open("", "Histórico", "width=400,height=400"); //abrir uma nova janela ou aba do navegador
-            novaJanela.document.write("<h2>Histórico de Operações</h2>"); //escrever conteudo dentro de uma nova janela ou aba do navegador.
-            if (historico.length === 0) { //mostrar quantos elementos existem dentro da variável
-                novaJanela.document.write("<p>Nenhuma operação realizada ainda.</p>"); //escrever dentro de uma nova janela
-            } else {
-                novaJanela.document.write("<ul>");
-                historico.forEach(item => {
-                    novaJanela.document.write(`<li>${item}</li>`);
-                });
-                novaJanela.document.write("</ul>");
-            }
+    botaoHistorico.addEventListener('click', () => {
+    let novaJanela = window.open("", "Histórico", );
+    novaJanela.document.write("Histórico de Operações");
+
+    if (historico.length === 0) {
+        novaJanela.document.write("Nenhuma operação realizada ainda.");
+    } else {
+        novaJanela.document.write("");
+        historico.forEach(item => {
+            novaJanela.document.write(`${item}`);
         });
+        novaJanela.document.write("");
+    }
+});
+
 
         let botoes = document.querySelectorAll('button');
         botoes.forEach((botao) => {

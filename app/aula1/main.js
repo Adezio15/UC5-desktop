@@ -21,7 +21,7 @@ function criarJanela(){
             setZoomFactor: 1.0 //deixando o zoom em 100%
         }
     })
-    janela.loadFile('jogoadvinha.html') 
+    janela.loadFile('calculadora.html') 
     //janela.webContents.openDevTools()
     //janela.webContents.setZoomFactor(1) //deixando o zoom em 100%
     
