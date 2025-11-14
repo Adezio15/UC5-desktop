@@ -5,59 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Jogo de Adivinhação</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" type="image/png">
+    <link rel="" href="" type="">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f3f3f3;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
-
-        body.escuro {
-            background-color: #121212;
-            color: white;
-        }
-
-        h1 {
-            color: #0077cc;
-        }
-
-        input {
-            font-size: 18px;
-            padding: 8px;
-            text-align: center;
-            width: 80px;
-        }
-
-        button {
-            font-size: 16px;
-            padding: 8px 12px;
-            margin: 5px;
-            cursor: pointer;
-        }
-
-        #mensagem {
-            font-size: 18px;
-            margin-top: 15px;
-        }
-
-        #dica {
-            color: darkred;
-            font-weight: bold;
-            display: none;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .controles {
-            margin-top: 20px;
-        }
+      
     </style>
 </head>
 
@@ -88,12 +38,12 @@
         // Número aleatório
         let numeroSecreto = Math.floor(Math.random() * 50) + 1;
         let tentativas = 0;
-        let zoomNivel = 1;
+        let zoom = 1;
 
         const palpite = document.getElementById('palpite');
         const mensagem = document.getElementById('mensagem');
         const dica = document.getElementById('dica');
-        const dicaBtn = document.getElementById('dicaBtn');
+       
 
         // Função verificar
         document.getElementById('verificar').addEventListener('click', function () {
@@ -101,12 +51,11 @@
             tentativas++;
 
             if (valor === numeroSecreto) {
-                mensagem.innerHTML = ` Parabéns! Você acertou o número <strong>${numeroSecreto}</strong> em <strong>${tentativas}</strong> tentativas!`;
+                mensagem.innerHTML = ` Parabéns! Você acertou o número ${numeroSecreto} em ${tentativas} tentativas!`;
                 dica.style.display = "none";
-                dicaBtn.style.display = "none";
             } else {
                 mensagem.innerHTML = " Errou! Tente novamente.";
-                dicaBtn.style.display = "inline-block";
+                dicaBtn.style.display = "";
             }
         });
 
