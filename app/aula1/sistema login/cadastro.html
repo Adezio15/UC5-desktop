@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sistema de Login</title>
+<title>Cadastro</title>
 
 <style>
   body {
@@ -26,43 +26,30 @@
     flex-direction: column;
     gap: 10px;
   }
-
-  button {
-    padding: 10px;
-    border: none;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  button:hover {
-    background: #0056b3;
-  }
 </style>
 </head>
 
 <body>
   <div class="tela">
-    <h2>Login</h2>
+    <h2>Cadastro</h2>
 
-    <input type="text" id="loginUsuario" placeholder="Login" />
-    <input type="password" id="senhaUsuario" placeholder="Senha" />
+    <input type="text" id="cad-nome" placeholder="Nome" />
+    <input type="date" id="cad-data" />
+    <input type="email" id="cad-email" placeholder="Email" />
+    <input type="text" id="cad-login" placeholder="Login" />
+    <input type="password" id="cad-senha" placeholder="Senha" />
 
-    <button id="btnEntrar">Entrar</button>
-
-    <button onclick="ircadastro()">Criar Cadastro</button>
+    <button id="btnSalvar">Salvar</button>
+    <button onclick="voltarLogin()">Voltar</button>
   </div>
 
   <script>
-    function ircadastro() {
-      window.location.href = "cadastro.html";
+    function voltarLogin() {
+      window.location.href = "index.html";
     }
   </script>
 
   <script src="renderer.js"></script>
 </body>
 </html>
-
-
 
