@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Bem-vindo</title>
+</head>
+<body>
+  <h1 id="msg">Carregando...</h1>
+
+<script>
+window.electronAPI.receberNomeWelcome((nome) => {
+    console.log("Nome recebido na welcome:", nome);
+    document.getElementById('msg').innerText = 'Bem-vindo, ' + nome + '!';
+  });
+</script>
+</body>
+</html>

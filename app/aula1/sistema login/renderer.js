@@ -1,3 +1,4 @@
+
 // SALVAR CADASTRO
 document.getElementById("btnSalvar")?.addEventListener("click", async () => {
   let dados = {
@@ -26,7 +27,7 @@ document.getElementById("btnEntrar")?.addEventListener("click", async () => {
   let res = await window.electronAPI.fazerLogin(dados);
 
   if (!res.ok) {
-    alert("Login ou senha incorretos!");
+    
     return;
   }
 

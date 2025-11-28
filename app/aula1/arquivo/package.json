@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "electron": "^39.2.3",
+    "electronmon": "^2.0.4"
+  }
+}
