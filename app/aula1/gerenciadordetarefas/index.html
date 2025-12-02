@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Gerenciador de Tarefas</h1>
+  <div id="app">
+    <form id="taskForm">
+      <input id="title" type="text" placeholder="Título da tarefa" required />
+      <input id="reminder" type="datetime-local" placeholder="Data do lembrete" />
+      <select id="priority">
+        <option value="alta">Alta</option>
+        <option value="media">Média</option>
+        <option value="baixa">Baixa</option>
+      </select>
+      <textarea id="content" placeholder="Conteúdo da tarefa"></textarea>
+      <button type="submit">Criar Tarefa</button>
+    </form>
+    <div style="display:flex; gap:8px; margin-bottom:10px;">
+      <input id="searchInput" type="text" placeholder="Buscar por título..." />
+      <button id="searchBtn">Buscar</button>
+      <button id="reloadBtn">Recarregar</button>
+      <button id="saveAs">Salvar Como</button>
+      <button id="exportBtn">Exportar</button>
+    </div>
+    <ul id="tasksList"></ul>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
